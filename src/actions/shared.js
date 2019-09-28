@@ -1,6 +1,6 @@
 import { hideLoading, showLoading } from 'react-redux-loading';
 import { getInitialData, saveQuestionAnswer } from '../utils/api';
-import { receiveQuestions, unvoteQuestion, voteQuestion } from '././questions';
+import { receiveQuestions, unvoteQuestion, voteQuestion } from './questions';
 import {
   receiveUsers,
   removeUserVoteFromQuestion,
