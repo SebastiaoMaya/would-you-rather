@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Login from '../login/Login';
 
-export default class Question extends Component {
+class Question extends Component {
   render() {
-    return <div></div>;
+    const { authedUser } = this.props;
+    return <div>{!authedUser ? <Login /> : 'Question'}</div>;
   }
 }
+
+const mapStateToProps = ({ authedUser }) => ({
+  authedUser
+});
+
+export default connect(mapStateToProps)(Question);

@@ -1,13 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import LoadingBar from 'react-redux-loading';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { handleInitialData } from '../actions/shared';
-import Dashboard from './dashboard/Dashboard';
+import Homepage from './homepage/Homepage';
 import Leaderboard from './leaderboard/Leaderboard';
-import Login from './login/Login';
 import Nav from './navigation/Navigation.js';
 import NewQuestion from './new-question/NewQuestion';
+import PageNotFound from './pagenotfound/PageNotFound';
 import Question from './question/Question';
 
 class App extends Component {
@@ -25,16 +25,13 @@ class App extends Component {
             {this.props.loaded ? (
               <div>
                 <Nav />
-                {!this.props.authedUser ? (
-                  <Login />
-                ) : (
-                  <div>
-                    <Route path='/' exact component={Dashboard} />
-                    <Route path='/add' component={NewQuestion} />
-                    <Route path='/leaderboard' component={Leaderboard} />
-                    <Route path='/question/:id' component={Question} />
-                  </div>
-                )}
+                <Switch>
+                  <Route path='/' exact component={Homepage} />
+                  <Route path='/add' component={NewQuestion} />
+                  <Route path='/leaderboard' component={Leaderboard} />
+                  <Route path='/question/:id' component={Question} />
+                  <Route path='*' component={PageNotFound} />
+                </Switch>
               </div>
             ) : null}
           </div>
