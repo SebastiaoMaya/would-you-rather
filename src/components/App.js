@@ -4,8 +4,11 @@ import LoadingBar from 'react-redux-loading';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { handleInitialData } from '../actions/shared';
 import Dashboard from './dashboard/Dashboard';
+import Leaderboard from './leaderboard/Leaderboard';
 import Login from './login/Login';
 import Nav from './navigation/Navigation.js';
+import NewQuestion from './new-question/NewQuestion';
+import Question from './question/Question';
 
 class App extends Component {
   componentDidMount() {
@@ -23,9 +26,9 @@ class App extends Component {
             ) : (
               <div>
                 <Route path='/' exact component={Dashboard} />
-                {/* <Route path='/' exact component={Dashboard} />
-                <Route path='/tweet/:id' component={TweetPage} />
-                <Route path='/new' component={NewTweet} /> */}
+                <Route path='/add' component={NewQuestion} />
+                <Route path='/leaderboard' component={Leaderboard} />
+                <Route path='/question/:id' component={Question} />
               </div>
             )}
           </div>
@@ -36,7 +39,8 @@ class App extends Component {
 }
 
 const mapStateToProps = ({ authedUser }) => ({
-  loading: authedUser === null
+  loading: authedUser === null,
+  authedUser
 });
 
 export default connect(mapStateToProps)(App);
