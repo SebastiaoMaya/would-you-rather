@@ -1,4 +1,4 @@
-import { LOADING_IS_DONE } from '../actions/loading';
+import { LOADING_IS_DONE } from '../actions/loaded';
 
 const loading = (state = false, action) => {
   switch (action.type) {

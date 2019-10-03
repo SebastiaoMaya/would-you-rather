@@ -14,23 +14,29 @@ class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData());
   }
+
   render() {
     return (
       <Router>
         <Fragment>
           <LoadingBar />
           <div className='container'>
-            <Nav />
-            {this.props.loading === true ? (
-              <Login />
-            ) : (
+            {/* if loaded then display components */}
+            {this.props.loaded ? (
               <div>
-                <Route path='/' exact component={Dashboard} />
-                <Route path='/add' component={NewQuestion} />
-                <Route path='/leaderboard' component={Leaderboard} />
-                <Route path='/question/:id' component={Question} />
+                <Nav />
+                {!this.props.authedUser ? (
+                  <Login />
+                ) : (
+                  <div>
+                    <Route path='/' exact component={Dashboard} />
+                    <Route path='/add' component={NewQuestion} />
+                    <Route path='/leaderboard' component={Leaderboard} />
+                    <Route path='/question/:id' component={Question} />
+                  </div>
+                )}
               </div>
-            )}
+            ) : null}
           </div>
         </Fragment>
       </Router>
@@ -38,8 +44,8 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ authedUser }) => ({
-  loading: authedUser === null,
+const mapStateToProps = ({ authedUser, loaded }) => ({
+  loaded,
   authedUser
 });
 

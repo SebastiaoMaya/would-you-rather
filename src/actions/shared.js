@@ -1,5 +1,6 @@
 import { hideLoading, showLoading } from 'react-redux-loading';
 import { getInitialData, saveQuestionAnswer } from '../utils/api';
+import { loadingIsDone } from './loaded';
 import { receiveQuestions, unvoteQuestion, voteQuestion } from './questions';
 import {
   receiveUsers,
@@ -14,6 +15,7 @@ export const handleInitialData = () => {
       dispatch(receiveQuestions(questions));
       dispatch(receiveUsers(users));
       dispatch(hideLoading());
+      dispatch(loadingIsDone());
     });
   };
 };
