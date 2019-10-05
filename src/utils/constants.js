@@ -21,3 +21,7 @@ export const USER_ASKS = ' asks';
 export const USER_ASKED_BY = 'Asked by ';
 export const WOULD_YOU_RATHER = 'Would you Rather';
 export const VIEW_POLL = 'View poll';
+export const SUBMIT = 'Submit';
+export const OPTION_ONE = 'optionOne';
+export const OPTION_TWO = 'optionTwo';
+export const RESULTS = 'Results';

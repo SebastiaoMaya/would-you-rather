@@ -11,19 +11,20 @@ import * as Constants from '../../utils/constants';
 import { truncate } from '../../utils/helpers';
 
 const SimplifiedDetails = props => {
-  const { question } = props;
+  const { question, user_name } = props;
   const id = question.id;
 
   return (
     <CardBody>
-      <CardTitle>{question.author + ' ' + Constants.USER_ASKS}</CardTitle>
+      <CardTitle>{user_name + ' ' + Constants.USER_ASKS}</CardTitle>
       <CardSubtitle>{Constants.WOULD_YOU_RATHER}</CardSubtitle>
       <CardText>
         {truncate(question.optionOne.text, Constants.SIMPLIFIED_STRING_SIZE)}
       </CardText>
-      <Button>
-        <Link to={`/question/${id}`}> {Constants.VIEW_POLL}</Link>
-      </Button>
+
+      <Link to={`/question/${id}`}>
+        <Button>{Constants.VIEW_POLL}</Button>
+      </Link>
     </CardBody>
   );
 };

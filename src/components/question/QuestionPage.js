@@ -9,16 +9,15 @@ import Question from './Question';
 class QuestionPage extends Component {
   render() {
     //question type varies if the authedUser has answered it or not
-    //if questionType has value (simplified) then render simplified version
-
     const { authedUser, questions, id } = this.props;
-    const questionType = alreadyVoted(questions, id, authedUser)
-      ? Constants.ANSWERED_QUESTION_TYPE
-      : Constants.UNANSWERED_QUESTION_TYPE;
 
     if (!questions[id]) {
       return <PageNotFound />;
     }
+
+    const questionType = alreadyVoted(questions, id, authedUser)
+      ? Constants.ANSWERED_QUESTION_TYPE
+      : Constants.UNANSWERED_QUESTION_TYPE;
 
     return (
       <div>

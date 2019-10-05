@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { removeAuthedUser } from '../../actions/authedUser';
 
 class LogoutNavBar extends Component {
   handleLogout = () => {
     const { dispatch } = this.props;
     dispatch(removeAuthedUser());
+    this.props.history.push(`/`);
   };
 
   render() {
@@ -29,4 +31,4 @@ const mapStateToProps = ({ authedUser, users }) => ({
   users
 });
 
-export default connect(mapStateToProps)(LogoutNavBar);
+export default withRouter(connect(mapStateToProps)(LogoutNavBar));

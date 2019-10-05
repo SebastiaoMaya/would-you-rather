@@ -29,7 +29,15 @@ export const handleVoteQuestion = info => dispatch => {
   dispatch(voteQuestion(info));
   dispatch(userVotedOnQuestion(info));
 
-  return saveQuestionAnswer(info).catch(e => {
+  const { authedUser, id, answer } = info;
+
+  const dataInfo = {
+    authedUser: authedUser,
+    qid: id,
+    answer: answer
+  };
+
+  return saveQuestionAnswer(dataInfo).catch(e => {
     console.log('Error in handleVoteQuestion: ', e);
     dispatch(unvoteQuestion(info));
     dispatch(removeUserVoteFromQuestion(info));
