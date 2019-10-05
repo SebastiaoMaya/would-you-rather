@@ -12,3 +12,18 @@ export function truncate(source, size) {
 export function votedOnQuestion(question, option, user) {
   return question[option].votes.includes(user);
 }
+
+export function getScoreObject(questions, user) {
+  const answers = Object.keys(questions).filter(key =>
+    alreadyVoted(questions, key, user)
+  );
+  const createdQuestions = Object.keys(questions).filter(
+    key => questions[key].author === user
+  );
+
+  return {
+    id: user,
+    answers: answers.length,
+    createdQuestions: createdQuestions.length
+  };
+}

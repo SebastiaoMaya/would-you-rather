@@ -33,3 +33,8 @@ export const VOTED_HERE = 'You voted here!';
 export const CREATE_NEW_QUESTION = 'Create new question';
 export const ENTER_OPTION_ONE_TEXT = 'Enter option one text here';
 export const ENTER_OPTION_TWO_TEXT = 'Enter option two text here';
+
+//LeaderBoard
+export const CREATED_QUESTIONS = 'Created Questions';
+export const SCORE = 'Score';
+export const PLACE_NUMBER = 'Place #';
