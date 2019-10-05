@@ -18,3 +18,7 @@ body {
 .avatar-img {
   border-radius: 50%;
 }
+
+.tab-pointer {
+  cursor: pointer;
+}

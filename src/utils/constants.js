@@ -7,3 +7,17 @@ export const SELECT_USER_OPTION_VALUE = 'select-user-option';
 
 //Would you rather image
 export const WOULD_YOU_RATHER_IMG_ALT = 'Would you rather image';
+
+//Dashboard
+export const UNANSWERED_QUESTIONS = 'Unanswered Questions';
+export const ANSWERED_QUESTIONS = 'Answered Questions';
+
+//Questions
+export const SIMPLIFIED_QUESTION_TYPE = 'simplified';
+export const UNANSWERED_QUESTION_TYPE = 'unasnwered';
+export const ANSWERED_QUESTION_TYPE = 'answered';
+export const SIMPLIFIED_STRING_SIZE = 8;
+export const USER_ASKS = ' asks';
+export const USER_ASKED_BY = 'Asked by ';
+export const WOULD_YOU_RATHER = 'Would you Rather';
+export const VIEW_POLL = 'View poll';

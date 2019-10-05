@@ -8,7 +8,7 @@ import Leaderboard from './leaderboard/Leaderboard';
 import Nav from './navigation/Navigation.js';
 import NewQuestion from './new-question/NewQuestion';
 import PageNotFound from './pagenotfound/PageNotFound';
-import Question from './question/Question';
+import QuestionPage from './question/QuestionPage';
 
 class App extends Component {
   componentDidMount() {
@@ -29,7 +29,7 @@ class App extends Component {
                   <Route path='/' exact component={Homepage} />
                   <Route path='/add' component={NewQuestion} />
                   <Route path='/leaderboard' component={Leaderboard} />
-                  <Route path='/question/:id' component={Question} />
+                  <Route path='/question/:id' component={QuestionPage} />
                   <Route path='*' component={PageNotFound} />
                 </Switch>
               </div>
