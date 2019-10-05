@@ -37,12 +37,7 @@ class Question extends Component {
           <Card>
             <Row className='no-gutters'>
               <Col md='4'>
-                <CardImg
-                  top
-                  max-width='100px !important'
-                  src={users[question.author].avatarURL}
-                  alt='Author'
-                />
+                <CardImg src={users[question.author].avatarURL} alt='Author' />
               </Col>
               <Col md='8'>{details}</Col>
             </Row>
