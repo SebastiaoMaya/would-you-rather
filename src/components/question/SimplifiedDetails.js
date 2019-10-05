@@ -13,13 +13,15 @@ import { truncate } from '../../utils/helpers';
 const SimplifiedDetails = props => {
   const { question, user_name } = props;
   const id = question.id;
+  const textToTruncate =
+    question.optionOne.text + ' or ' + question.optionTwo.text;
 
   return (
     <CardBody>
       <CardTitle>{user_name + ' ' + Constants.USER_ASKS}</CardTitle>
       <CardSubtitle>{Constants.WOULD_YOU_RATHER}</CardSubtitle>
       <CardText>
-        {truncate(question.optionOne.text, Constants.SIMPLIFIED_STRING_SIZE)}
+        {truncate(textToTruncate, Constants.SIMPLIFIED_STRING_SIZE)}
       </CardText>
 
       <Link to={`/question/${id}`}>

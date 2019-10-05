@@ -28,3 +28,8 @@ export const RESULTS = 'Results';
 export const OUT_OF = 'out of';
 export const VOTES = 'votes';
 export const VOTED_HERE = 'You voted here!';
+
+//New Question
+export const CREATE_NEW_QUESTION = 'Create new question';
+export const ENTER_OPTION_ONE_TEXT = 'Enter option one text here';
+export const ENTER_OPTION_TWO_TEXT = 'Enter option two text here';

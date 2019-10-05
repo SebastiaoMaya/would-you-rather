@@ -28,11 +28,7 @@ class Dashboard extends Component {
   }
 
   render() {
-    const {
-      unanswered_questions_ids,
-      answered_questions_ids,
-      questions
-    } = this.props;
+    const { unanswered_questions_ids, answered_questions_ids } = this.props;
 
     return (
       <div>
@@ -102,8 +98,7 @@ const mapStateToProps = ({ questions, authedUser }) => {
 
   return {
     unanswered_questions_ids,
-    answered_questions_ids,
-    questions
+    answered_questions_ids
   };
 };
 
