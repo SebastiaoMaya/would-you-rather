@@ -38,3 +38,6 @@ export const ENTER_OPTION_TWO_TEXT = 'Enter option two text here';
 export const CREATED_QUESTIONS = 'Created Questions';
 export const SCORE = 'Score';
 export const PLACE_NUMBER = 'Place #';
+
+//Not Found
+export const NOT_FOUND_IMG_ALT = 'not found alt';
