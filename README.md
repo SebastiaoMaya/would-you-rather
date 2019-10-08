@@ -1,96 +1,43 @@
 # Would You Rather Project
 
-This is the starter code for the final assessment project for Udacity's React & Redux course.
+This project lets the user play the "would you rather" game, see the statistics about existing polls, create new polls and vote on polls.
 
-The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the `_DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
+## State of the App
 
-Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
-
-## Data
-
-There are two types of objects stored in our database:
-
-- Users
-- Questions
+- users - object with users
+- questions - object with questions
+- authedUser - id of the authenticated user
+- loadingBar - loading bar reducer to display a loading bar
+- loaded - flag to understand if the app has loaded or not
 
 ### Users
 
-Users include:
-
-| Attribute | Type   | Description                                                                                                                                                                                                    |
-| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id        | String | The user’s unique identifier                                                                                                                                                                                   |
-| name      | String | The user’s first name and last name                                                                                                                                                                            |
-| avatarURL | String | The path to the image file                                                                                                                                                                                     |
-| questions | Array  | A list of ids of the polling questions this user created                                                                                                                                                       |
-| answers   | Object | The object's keys are the ids of each question this user answered. The value of each key is the answer the user selected. It can be either `'optionOne'` or `'optionTwo'` since each question has two options. |
+- RECEIVE_USERS - action to receive all users
+- USER_VOTED_ON_QUESTION - action for a user to vote on a question - adds an object {qid: answer} to the user answers object
+- REMOVE_USER_VOTE_FROM_QUESTION - fallback action in case USER_VOTED_ON_QUESTION fails
 
 ### Questions
 
-Questions include:
+- RECEIVE_QUESTIONS - action to receive all questions
+- VOTE_QUESTION - action for a question to be voted on - adds the user id to the votes array of the specific answer
+- UNVOTE_QUESTION - fallback action in case VOTE_QUESTION fails
+- ADD_QUESTION - creates a new question object and adds it to the state
 
-| Attribute | Type   | Description                            |
-| --------- | ------ | -------------------------------------- |
-| id        | String | The question’s unique identifier       |
-| author    | String | The author’s unique identifier         |
-| timestamp | String | The time when the question was created |
-| optionOne | Object | The first voting option                |
-| optionTwo | Object | The second voting option               |
+### authedUser
 
-### Voting Options
+- SET_AUTHED_USER - action that sets the authedUser to the user id
+- REMOVE_AUTHED_USER - action that sets the authedUser to null
 
-Voting options are attached to questions. They include:
+### loaded
 
-| Attribute | Type   | Description                                                        |
-| --------- | ------ | ------------------------------------------------------------------ |
-| votes     | Array  | A list that contains the id of each user who voted for that option |
-| text      | String | The text of the option                                             |
+- LOADING_IS_DONE - action that sets the flag "loaded" to true (this flag starts at false)
 
-Your code will talk to the database via 4 methods:
+### Component structure
 
-- `_getUsers()`
-- `_getQuestions()`
-- `_saveQuestion(question)`
-- `_saveQuestionAnswer(object)`
+- All the components are under a specific folder which means that they are related with each of the other components on the same folder
 
-1. `_getUsers()` Method
+- Question component is the parent of the "AnsweredDetails", "UnansweredDetails" and "SimplifiedDetails" since it shares the same avatar with all and only the details of the card are changed
 
-_Description_: Get all of the existing users from the database.  
-_Return Value_: Object where the key is the user’s id and the value is the user object.
+### Styling
 
-2. `_getQuestions()` Method
-
-_Description_: Get all of the existing questions from the database.  
-_Return Value_: Object where the key is the question’s id and the value is the question object.
-
-3. `_saveQuestion(question)` Method
-
-_Description_: Save the polling question in the database.  
-_Parameters_: Object that includes the following properties: `author`, `optionOneText`, and `optionTwoText`. More details about these properties:
-
-| Attribute     | Type   | Description                                |
-| ------------- | ------ | ------------------------------------------ |
-| author        | String | The id of the user who posted the question |
-| optionOneText | String | The text of the first option               |
-| optionTwoText | String | The text of the second option              |
-
-_Return Value_: An object that has the following properties: `id`, `author`, `optionOne`, `optionTwo`, `timestamp`. More details about these properties:
-
-| Attribute | Type   | Description                                                                                                                  |
-| --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------- |
-| id        | String | The id of the question that was posted                                                                                       |
-| author    | String | The id of the user who posted the question                                                                                   |
-| optionOne | Object | The object has a text property and a votes property, which stores an array of the ids of the users who voted for that option |
-| optionTwo | Object | The object has a text property and a votes property, which stores an array of the ids of the users who voted for that option |
-| timestamp | String | The time when the question was created                                                                                       |
-
-4. `_saveQuestionAnswer(object)` Method
-
-_Description_: Save the answer to a particular polling question in the database.
-_Parameters_: Object that contains the following properties: `authedUser`, `qid`, and `answer`. More details about these properties:
-
-| Attribute  | Type   | Description                                                                             |
-| ---------- | ------ | --------------------------------------------------------------------------------------- |
-| authedUser | String | The id of the user who answered the question                                            |
-| qid        | String | The id of the question that was answered                                                |
-| answer     | String | The option the user selected. The value should be either `"optionOne"` or `"optionTwo"` |
+- Used reactstrap for all the styling of the app
