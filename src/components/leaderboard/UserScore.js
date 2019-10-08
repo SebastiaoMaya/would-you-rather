@@ -11,8 +11,7 @@ import {
 } from 'reactstrap';
 import * as Constants from '../../utils/constants';
 
-const UserScore = props => {
-  const { users, userScore, place } = props;
+const UserScore = ({ users, userScore, place }) => {
   const score = userScore.answers + userScore.createdQuestions;
 
   return (

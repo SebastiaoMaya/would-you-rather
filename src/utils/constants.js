@@ -41,3 +41,8 @@ export const PLACE_NUMBER = 'Place #';
 
 //Not Found
 export const NOT_FOUND_IMG_ALT = 'not found alt';
+
+//Navigation
+export const LEADERBOARD = 'Leaderboard';
+export const HOME = 'Home';
+export const NEW_QUESTION = 'New Question';

@@ -10,8 +10,7 @@ import {
 import * as Constants from '../../utils/constants';
 import { truncate } from '../../utils/helpers';
 
-const SimplifiedDetails = props => {
-  const { question, user_name } = props;
+const SimplifiedDetails = ({ question, user_name }) => {
   const id = question.id;
   const textToTruncate =
     question.optionOne.text + ' or ' + question.optionTwo.text;

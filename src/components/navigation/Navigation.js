@@ -1,21 +1,22 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Collapse, Nav, Navbar, NavItem } from 'reactstrap';
+import * as Constants from '../../utils/constants';
 import LogoutNavBar from './LogoutNavBar';
 
-export default function Navigation() {
+const Navigation = () => {
   return (
     <Navbar color='light' light expand='xs'>
       <Collapse navbar>
         <Nav className='mr-auto' navbar>
           <NavItem>
             <NavLink to='/' exact className='nav-link' activeClassName='active'>
-              Home
+              {Constants.HOME}
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink to='/add' className='nav-link' activeClassName='active'>
-              New Question
+              {Constants.NEW_QUESTION}
             </NavLink>
           </NavItem>
           <NavItem>
@@ -24,7 +25,7 @@ export default function Navigation() {
               className='nav-link'
               activeClassName='active'
             >
-              Leaderboard
+              {Constants.LEADERBOARD}
             </NavLink>
           </NavItem>
         </Nav>
@@ -36,4 +37,6 @@ export default function Navigation() {
       </Collapse>
     </Navbar>
   );
-}
+};
+
+export default Navigation;

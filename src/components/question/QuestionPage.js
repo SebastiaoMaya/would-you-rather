@@ -2,15 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as Constants from '../../utils/constants';
 import { alreadyVoted } from '../../utils/helpers';
-import Login from '../login/Login';
 import PageNotFound from '../pagenotfound/PageNotFound';
 import Question from './Question';
 
 const QuestionPage = ({ authedUser, questions, id }) => {
-  if (!authedUser) {
-    return <Login />;
-  }
-
   //question type varies if the authedUser has answered it or not
   if (!questions[id]) {
     return <PageNotFound />;
