@@ -2,6 +2,13 @@
 
 This project lets the user play the "would you rather" game, see the statistics about existing polls, create new polls and vote on polls.
 
+## How to install the project
+
+- clone the repository
+- cd to the main directory
+- npm install
+- npm start
+
 ## State of the App
 
 - users - object with users
