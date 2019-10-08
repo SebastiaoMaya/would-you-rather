@@ -32,12 +32,12 @@ This project lets the user play the "would you rather" game, see the statistics 
 
 - LOADING_IS_DONE - action that sets the flag "loaded" to true (this flag starts at false)
 
-### Component structure
+## Component structure
 
 - All the components are under a specific folder which means that they are related with each of the other components on the same folder
 
 - Question component is the parent of the "AnsweredDetails", "UnansweredDetails" and "SimplifiedDetails" since it shares the same avatar with all and only the details of the card are changed
 
-### Styling
+## Styling
 
 - Used reactstrap for all the styling of the app
